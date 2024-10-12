@@ -29,28 +29,7 @@
 		1C3B63842CB7D1F300931280 /* Expense TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Expense TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		1CF279792CBAE07E00CE04FC /* Exceptions for "Expense Tracker" folder in "Expense Tracker" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ContentView.swift,
-				HomeScreen.swift,
-				LandingPage.swift,
-				VerticalAlignment.swift,
-			);
-			target = 1C3B63692CB7D1F200931280 /* Expense Tracker */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		1C3B636C2CB7D1F200931280 /* Expense Tracker */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				1CF279792CBAE07E00CE04FC /* Exceptions for "Expense Tracker" folder in "Expense Tracker" target */,
-			);
-			path = "Expense Tracker";
-			sourceTree = "<group>";
-		};
 		1C3B637D2CB7D1F300931280 /* Expense TrackerTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Expense TrackerTests";
@@ -59,6 +38,11 @@
 		1C3B63872CB7D1F300931280 /* Expense TrackerUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Expense TrackerUITests";
+			sourceTree = "<group>";
+		};
+		1C3D3DE12CB9833900F50122 /* Expense Tracker */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Expense Tracker";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -91,7 +75,7 @@
 		1C3B63612CB7D1F200931280 = {
 			isa = PBXGroup;
 			children = (
-				1C3B636C2CB7D1F200931280 /* Expense Tracker */,
+				1C3D3DE12CB9833900F50122 /* Expense Tracker */,
 				1C3B637D2CB7D1F300931280 /* Expense TrackerTests */,
 				1C3B63872CB7D1F300931280 /* Expense TrackerUITests */,
 				1C3B636B2CB7D1F200931280 /* Products */,
@@ -124,7 +108,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				1C3B636C2CB7D1F200931280 /* Expense Tracker */,
+				1C3D3DE12CB9833900F50122 /* Expense Tracker */,
 			);
 			name = "Expense Tracker";
 			packageProductDependencies = (
