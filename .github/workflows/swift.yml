@@ -12,33 +12,19 @@ on:
 jobs:
   build:
     name: Build and Test iOS Project
-    runs-on: macos-latest  # Use the latest macOS runner
+    runs-on: macos-latest
 
     steps:
     # Step 1: Checkout repository
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    # Step 2: Debugging step - List directory structure
-    - name: List directory structure
+    # Step 2: Set up Xcode version (optional)
+    - name: Set up Xcode 15 (or any compatible version)
       run: |
-        echo "Listing the root directory contents:"
-        ls -l
-        echo "Listing all files recursively:"
-        ls -R
+        sudo xcode-select -s /Applications/Xcode_15.0.app/Contents/Developer
 
-    # Step 3: Debugging step - Check if .xcodeproj exists
-    - name: Check for .xcodeproj file
-      run: |
-        echo "Checking if .xcodeproj exists"
-        if [ -f "Expense Tracker.xcodeproj" ]; then
-          echo "Found .xcodeproj file"
-        else
-          echo "No .xcodeproj file found"
-          exit 1
-        fi
-
-    # Step 4: Install dependencies (CocoaPods, Carthage, SwiftPM, etc.)
+    # Step 3: Install dependencies
     - name: Install dependencies
       run: |
         if [ -f Podfile ]; then
@@ -46,29 +32,20 @@ jobs:
           sudo gem install cocoapods
           pod install
         fi
-        # Add other dependency managers (like Carthage or SwiftPM) if needed.
 
-    # Step 5: Build the project using .xcodeproj
+    # Step 4: Build the project using hardcoded .xcodeproj path
     - name: Build the iOS project
       run: |
-        # Debugging: Show the current directory
-        echo "Current directory:"
-        pwd
-        echo "Contents of the current directory:"
-        ls -l
-        
-        # Build with .xcodeproj
         echo "Building with .xcodeproj"
-        xcodebuild -project "Expense Tracker.xcodeproj" -scheme "Expense Tracker" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14' clean build
+        xcodebuild -project "./Expense Tracker.xcodeproj" -scheme "Expense Tracker" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14' clean build
 
-    # Step 6: Run tests
+    # Step 5: Run tests using hardcoded .xcodeproj path
     - name: Run tests
       run: |
-        # Debugging: Check if the test files are present
         echo "Running tests..."
-        xcodebuild test -project "Expense Tracker.xcodeproj" -scheme "Expense Tracker" -destination 'platform=iOS Simulator,name=iPhone 14'
+        xcodebuild test -project "./Expense Tracker.xcodeproj" -scheme "Expense Tracker" -destination 'platform=iOS Simulator,name=iPhone 14'
 
-    # Step 7: Upload test results (optional)
+    # Step 6: Upload test results (optional)
     - name: Upload test results
       if: success() || failure()
       uses: actions/upload-artifact@v3
