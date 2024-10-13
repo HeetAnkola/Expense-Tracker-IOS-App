@@ -39,7 +39,7 @@ class UserViewModel: ObservableObject {
                 return 0
             }
             
-            print("Total Expenses: \(expense)")
+//            print("Total Expenses: \(expense)")
             
             // If the expenses are valid, return daily max based on expenses
             return expense.isNaN ? 0 : expense / userDailyMax
